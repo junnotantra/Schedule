@@ -5,6 +5,7 @@
     xmlns:f="http://xmlns.jcp.org/jsf/core"
     template="/template.xhtml"
     xmlns:util="http://java.sun.com/jsf/composite/util"
+    xmlns:jsf="http://xmlns.jcp.org/jsf"
     xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <ui:define name="content">
         FAK!
@@ -49,7 +50,10 @@
                         <h:commandLink action="#{mahasiswaMBean.showDetails(item)}" value="Edit" />
                     </h:column>
                 </h:dataTable>
-                <h:commandLink action="EditMahasiswa" value="Add New" />
+                <h:commandLink action="#{mahasiswaMBean.goAdd}" value="Add New" />
+                <!--<input jsf:id="clear" name="clear" value="Clear" type="submit">
+                    <f:ajax render="@all" listener=""/>
+                </input>-->
             </h:form>
         </f:view>
 

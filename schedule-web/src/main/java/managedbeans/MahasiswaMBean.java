@@ -12,6 +12,8 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.faces.event.AbortProcessingException;
+import javax.faces.event.AjaxBehaviorEvent;
 
 /**
  *
@@ -22,7 +24,6 @@ import javax.ejb.EJB;
 public class MahasiswaMBean implements Serializable {
     @EJB
     private session.MahasiswaManager mahasiswaManager;
-    
     private Mahasiswa mahasiswa;
     private List<Mahasiswa> listMahasiswa;
 
@@ -33,7 +34,8 @@ public class MahasiswaMBean implements Serializable {
     }
     
     public List<Mahasiswa>getListMahasiswa() {  
-        if((listMahasiswa == null) || (listMahasiswa.isEmpty()))            refresh();  
+        if((listMahasiswa == null) || (listMahasiswa.isEmpty()))            
+            refresh();  
         return listMahasiswa;  
     }  
   
@@ -47,7 +49,9 @@ public class MahasiswaMBean implements Serializable {
      */  
     public Mahasiswa getDetails() {  
         return mahasiswa;  
-    }  
+    } 
+    
+    
   
     /** 
      * Action handler - Called when a line in the table is clicked 
@@ -57,7 +61,12 @@ public class MahasiswaMBean implements Serializable {
     public String showDetails(Mahasiswa mahasiswa) {  
         this.mahasiswa = mahasiswa;  
         return "EditMahasiswa"; // will display CustomerDetails.xml JSF page  
-    }  
+    } 
+    
+    public String goAdd() {  
+        this.mahasiswa = new Mahasiswa();  
+        return "AddMahasiswa"; // will display CustomerDetails.xml JSF page  
+    } 
   
     /** 
      * Action handler - update the customer model in the database. 
@@ -78,4 +87,20 @@ public class MahasiswaMBean implements Serializable {
         return "ListMahasiswa";  
     }  
     
+    public String addNew() {
+        mahasiswaManager.persist(mahasiswa);
+        listMahasiswa.add(mahasiswa);
+  //      refresh();
+        return "ListMahasiswa";
+        
+    }
+    
+    public void clearMahasiswa(AjaxBehaviorEvent event)
+            throws AbortProcessingException {
+        mahasiswa.setNim("");
+        mahasiswa.setNmMhs("");
+        mahasiswa.setAlmtMhs("");
+       // mahasiswa.setJnsKlmnMhs("");
+      //  mahasiswa.setIdKa("");
+    }
 }

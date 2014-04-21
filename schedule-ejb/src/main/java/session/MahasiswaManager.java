@@ -38,7 +38,7 @@ public class MahasiswaManager {
         return em.merge(mahasiswa);  
     }
 
-    public void persist(Object object) {  
-        em.persist(object);  
+    public void persist(Mahasiswa mahasiswa) {  
+        em.persist(mahasiswa);  
     }  
 }
