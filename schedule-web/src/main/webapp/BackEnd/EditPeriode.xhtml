@@ -1,0 +1,39 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="/template.xhtml"
+    xmlns:util="http://java.sun.com/jsf/composite/util"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:define name="content">
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="SemPeriode:" for="semPeriode" />
+                    <h:inputText id="semPeriode" value="#{periodeMBean.details.semPeriode}" title="SemPeriode" />
+                    <h:outputLabel value="ThnPeriode:" for="thnPeriode" />
+                    <h:inputText id="thnPeriode" value="#{periodeMBean.details.thnPeriode}" title="ThnPeriode" />
+                    <h:outputLabel value="RentangKtsAwal:" for="rentangKtsAwal" />
+                    <h:inputText id="rentangKtsAwal" value="#{periodeMBean.details.rentangKtsAwal}" title="RentangKtsAwal" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="RentangKtsAkhir:" for="rentangKtsAkhir" />
+                    <h:inputText id="rentangKtsAkhir" value="#{periodeMBean.details.rentangKtsAkhir}" title="RentangKtsAkhir" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="RentangSdgAwal:" for="rentangSdgAwal" />
+                    <h:inputText id="rentangSdgAwal" value="#{periodeMBean.details.rentangSdgAwal}" title="RentangSdgAwal" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="RentangSdgAkhir:" for="rentangSdgAkhir" />
+                    <h:inputText id="rentangSdgAkhir" value="#{periodeMBean.details.rentangSdgAkhir}" title="RentangSdgAkhir" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+    </ui:define>
+</ui:composition>

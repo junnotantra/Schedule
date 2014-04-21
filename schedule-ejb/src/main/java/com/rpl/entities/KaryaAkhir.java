@@ -13,6 +13,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -47,14 +49,26 @@ public class KaryaAkhir implements Serializable {
     private String judulKa;
     @Column(name = "status_ka")
     private Integer statusKa;
+    @JoinTable(name = "ka_topik", joinColumns = {
+        @JoinColumn(name = "id_ka", referencedColumnName = "id_ka")}, inverseJoinColumns = {
+        @JoinColumn(name = "id_topik", referencedColumnName = "id_topik")})
+    @ManyToMany
+    private Collection<Topik> topikCollection;
+    @JoinTable(name = "pembimbing", joinColumns = {
+        @JoinColumn(name = "id_ka", referencedColumnName = "id_ka")}, inverseJoinColumns = {
+        @JoinColumn(name = "nik_dosen", referencedColumnName = "nik_dosen")})
+    @ManyToMany
+    private Collection<Dosen> dosenCollection;
+    @OneToMany(mappedBy = "idKa")
+    private Collection<SeminarSidang> seminarSidangCollection;
+    @OneToMany(mappedBy = "idKa")
+    private Collection<Mahasiswa> mahasiswaCollection;
     @JoinColumn(name = "nim", referencedColumnName = "nim")
     @ManyToOne
     private Mahasiswa nim;
     @JoinColumn(name = "id_jenis_ka", referencedColumnName = "id_jenis_ka")
     @ManyToOne
     private JenisKa idJenisKa;
-    @OneToMany(mappedBy = "idKa")
-    private Collection<Mahasiswa> mahasiswaCollection;
 
     public KaryaAkhir() {
     }
@@ -87,6 +101,42 @@ public class KaryaAkhir implements Serializable {
         this.statusKa = statusKa;
     }
 
+    @XmlTransient
+    public Collection<Topik> getTopikCollection() {
+        return topikCollection;
+    }
+
+    public void setTopikCollection(Collection<Topik> topikCollection) {
+        this.topikCollection = topikCollection;
+    }
+
+    @XmlTransient
+    public Collection<Dosen> getDosenCollection() {
+        return dosenCollection;
+    }
+
+    public void setDosenCollection(Collection<Dosen> dosenCollection) {
+        this.dosenCollection = dosenCollection;
+    }
+
+    @XmlTransient
+    public Collection<SeminarSidang> getSeminarSidangCollection() {
+        return seminarSidangCollection;
+    }
+
+    public void setSeminarSidangCollection(Collection<SeminarSidang> seminarSidangCollection) {
+        this.seminarSidangCollection = seminarSidangCollection;
+    }
+
+    @XmlTransient
+    public Collection<Mahasiswa> getMahasiswaCollection() {
+        return mahasiswaCollection;
+    }
+
+    public void setMahasiswaCollection(Collection<Mahasiswa> mahasiswaCollection) {
+        this.mahasiswaCollection = mahasiswaCollection;
+    }
+
     public Mahasiswa getNim() {
         return nim;
     }
@@ -101,15 +151,6 @@ public class KaryaAkhir implements Serializable {
 
     public void setIdJenisKa(JenisKa idJenisKa) {
         this.idJenisKa = idJenisKa;
-    }
-
-    @XmlTransient
-    public Collection<Mahasiswa> getMahasiswaCollection() {
-        return mahasiswaCollection;
-    }
-
-    public void setMahasiswaCollection(Collection<Mahasiswa> mahasiswaCollection) {
-        this.mahasiswaCollection = mahasiswaCollection;
     }
 
     @Override

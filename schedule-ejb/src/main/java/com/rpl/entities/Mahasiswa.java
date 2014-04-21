@@ -52,11 +52,11 @@ public class Mahasiswa implements Serializable {
     private String almtMhs;
     @Column(name = "jns_klmn_mhs")
     private Integer jnsKlmnMhs;
-    @OneToMany(mappedBy = "nim")
-    private Collection<KaryaAkhir> karyaAkhirCollection;
     @JoinColumn(name = "id_ka", referencedColumnName = "id_ka")
     @ManyToOne
     private KaryaAkhir idKa;
+    @OneToMany(mappedBy = "nim")
+    private Collection<KaryaAkhir> karyaAkhirCollection;
 
     public Mahasiswa() {
     }
@@ -97,6 +97,14 @@ public class Mahasiswa implements Serializable {
         this.jnsKlmnMhs = jnsKlmnMhs;
     }
 
+    public KaryaAkhir getIdKa() {
+        return idKa;
+    }
+
+    public void setIdKa(KaryaAkhir idKa) {
+        this.idKa = idKa;
+    }
+
     @XmlTransient
     public Collection<KaryaAkhir> getKaryaAkhirCollection() {
         return karyaAkhirCollection;
@@ -104,14 +112,6 @@ public class Mahasiswa implements Serializable {
 
     public void setKaryaAkhirCollection(Collection<KaryaAkhir> karyaAkhirCollection) {
         this.karyaAkhirCollection = karyaAkhirCollection;
-    }
-
-    public KaryaAkhir getIdKa() {
-        return idKa;
-    }
-
-    public void setIdKa(KaryaAkhir idKa) {
-        this.idKa = idKa;
     }
 
     @Override
