@@ -56,7 +56,7 @@ public class MahasiswaMBean implements Serializable {
      */  
     public String showDetails(Mahasiswa mahasiswa) {  
         this.mahasiswa = mahasiswa;  
-        return "MahasiswaDetails"; // will display CustomerDetails.xml JSF page  
+        return "EditMahasiswa"; // will display CustomerDetails.xml JSF page  
     }  
   
     /** 
@@ -67,7 +67,7 @@ public class MahasiswaMBean implements Serializable {
     public String update() {  
         System.out.println("###UPDATE###");  
         mahasiswa = mahasiswaManager.update(mahasiswa);  
-        return "MahasiswaList"; // will display the customer list in a table  
+        return "ListMahasiswa"; // will display the customer list in a table  
     }  
   
     /** 
@@ -75,7 +75,7 @@ public class MahasiswaMBean implements Serializable {
      */  
     public String list() {  
         System.out.println("###LIST###");  
-        return "MahasiswaList";  
+        return "ListMahasiswa";  
     }  
     
 }
