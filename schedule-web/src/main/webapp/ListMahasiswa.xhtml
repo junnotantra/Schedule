@@ -1,0 +1,50 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="/template.xhtml"
+    xmlns:util="http://java.sun.com/jsf/composite/util"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:define name="content">
+        FAK!
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <h:dataTable value="#{mahasiswaMBean.listMahasiswa}" var="item">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nim"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nim}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="NmMhs"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nmMhs}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="AlmtMhs"/>
+                        </f:facet>
+                        <h:outputText value="#{item.almtMhs}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="JnsKlmnMhs"/>
+                        </f:facet>
+                        <h:outputText value="#{item.jnsKlmnMhs}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="IdKa"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idKa}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+
+    </ui:define>
+</ui:composition>
