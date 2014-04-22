@@ -12,8 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -47,9 +45,6 @@ public class Ruangan implements Serializable {
     private String nmRuangan;
     @OneToMany(mappedBy = "idRuangan")
     private Collection<JdwlSmnSdg> jdwlSmnSdgCollection;
-    @JoinColumn(name = "id_jdw_ss", referencedColumnName = "id_jdw_ss")
-    @ManyToOne
-    private JdwlSmnSdg idJdwSs;
 
     public Ruangan() {
     }
@@ -81,14 +76,6 @@ public class Ruangan implements Serializable {
 
     public void setJdwlSmnSdgCollection(Collection<JdwlSmnSdg> jdwlSmnSdgCollection) {
         this.jdwlSmnSdgCollection = jdwlSmnSdgCollection;
-    }
-
-    public JdwlSmnSdg getIdJdwSs() {
-        return idJdwSs;
-    }
-
-    public void setIdJdwSs(JdwlSmnSdg idJdwSs) {
-        this.idJdwSs = idJdwSs;
     }
 
     @Override

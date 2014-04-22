@@ -66,8 +66,6 @@ public class JdwlSmnSdg implements Serializable {
     @JoinColumn(name = "id_periode", referencedColumnName = "id_periode")
     @ManyToOne
     private Periode idPeriode;
-    @OneToMany(mappedBy = "idJdwSs")
-    private Collection<Ruangan> ruanganCollection;
 
     public JdwlSmnSdg() {
     }
@@ -131,15 +129,6 @@ public class JdwlSmnSdg implements Serializable {
 
     public void setIdPeriode(Periode idPeriode) {
         this.idPeriode = idPeriode;
-    }
-
-    @XmlTransient
-    public Collection<Ruangan> getRuanganCollection() {
-        return ruanganCollection;
-    }
-
-    public void setRuanganCollection(Collection<Ruangan> ruanganCollection) {
-        this.ruanganCollection = ruanganCollection;
     }
 
     @Override
