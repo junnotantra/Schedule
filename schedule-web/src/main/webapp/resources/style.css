@@ -14,7 +14,7 @@ Date: 2/05/2006
 body {
  background: #222 url(headergrunge.jpg) repeat-x;
  font-family: Verdana, Arial, sans-serif;
- font-size: 16px;
+ font-size: 14px;
  color: #fff;}
  
 a img{ border: 0px; }
@@ -38,6 +38,12 @@ button {
  border: 2px solid #444;
  height: 2em;} 
 
+table, th, td{
+    border: solid thin #fff;
+    margin: 2px;
+    padding: 2px;
+    width: auto;
+}
 
 /**** Span class's *****/
 

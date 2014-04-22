@@ -9,12 +9,12 @@
     <ui:define name="content">
         <f:view>
             <h:form>
-                <h1><h:outputText value="List"/></h1>
+                <h1><h:outputText value="List Jadwal"/></h1>
                 <h:dataTable value="#{jadwalMBean.listJadwal}" var="item">
                     
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="WaktuAwal"/>
+                            <h:outputText value="Waktu Awal"/>
                         </f:facet>
                         <h:outputText value="#{item.waktuAwal}">
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -22,7 +22,7 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="WaktuAkhir"/>
+                            <h:outputText value="Waktu Akhir"/>
                         </f:facet>
                         <h:outputText value="#{item.waktuAkhir}">
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -30,19 +30,19 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="IdSmnsdg"/>
+                            <h:outputText value="Id SS"/>
                         </f:facet>
                         <h:outputText value="#{item.idSmnsdg.idSmnsdg}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="IdRuangan"/>
+                            <h:outputText value="Id Ruangan"/>
                         </f:facet>
                         <h:outputText value="#{item.idRuangan.idRuangan}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="IdPeriode"/>
+                            <h:outputText value="Id Periode"/>
                         </f:facet>
                         <h:outputText value="#{item.idPeriode.idPeriode}"/>
                     </h:column>
@@ -50,7 +50,7 @@
                         <f:facet name="header">
                             <h:outputText value="Action"/>
                         </f:facet>
-                        <h:commandLink action="#{jadwalMBean.showDetails(item)}" value="Edit" />
+                        <h:commandLink action="#{jadwalMBean.showDetails(item)}" value="Edit" /> | 
                         <h:commandLink action="#{jadwalMBean.delete(item)}" value="Delete" />
                     </h:column>
                 </h:dataTable>

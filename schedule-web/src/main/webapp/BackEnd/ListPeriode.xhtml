@@ -9,29 +9,29 @@
     <ui:define name="content">
         <f:view>
             <h:form>
-                <h1><h:outputText value="List"/></h1>
+                <h1><h:outputText value="List Periode"/></h1>
                 <h:dataTable value="#{periodeMBean.listPeriode}" var="item">
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="IdPeriode"/>
+                            <h:outputText value="Id Periode"/>
                         </f:facet>
                         <h:outputText value="#{item.idPeriode}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="SemPeriode"/>
+                            <h:outputText value="Semester"/>
                         </f:facet>
                         <h:outputText value="#{item.semPeriode}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="ThnPeriode"/>
+                            <h:outputText value="Tahun"/>
                         </f:facet>
                         <h:outputText value="#{item.thnPeriode}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="RentangKtsAwal"/>
+                            <h:outputText value="Rentang Kts Awal"/>
                         </f:facet>
                         <h:outputText value="#{item.rentangKtsAwal}">
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -39,7 +39,7 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="RentangKtsAkhir"/>
+                            <h:outputText value="Rentang Kts Akhir"/>
                         </f:facet>
                         <h:outputText value="#{item.rentangKtsAkhir}">
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -47,7 +47,7 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="RentangSdgAwal"/>
+                            <h:outputText value="Rentang Sdg Awal"/>
                         </f:facet>
                         <h:outputText value="#{item.rentangSdgAwal}">
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -55,7 +55,7 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="RentangSdgAkhir"/>
+                            <h:outputText value="Rentang Sdg Akhir"/>
                         </f:facet>
                         <h:outputText value="#{item.rentangSdgAkhir}">
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -65,7 +65,7 @@
                         <f:facet name="header">
                             <h:outputText value="Action"/>
                         </f:facet>
-                        <h:commandLink action="#{periodeMBean.showDetails(item)}" value="Edit" />
+                        <h:commandLink action="#{periodeMBean.showDetails(item)}" value="Edit" /> | 
                         <h:commandLink action="#{periodeMBean.delete(item)}" value="Delete" />
                     </h:column>
                 </h:dataTable>

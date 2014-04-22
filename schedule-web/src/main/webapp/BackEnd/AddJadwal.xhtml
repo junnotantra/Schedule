@@ -9,27 +9,27 @@
     <ui:define name="content">
         <f:view>
             <h:form>
-                <h1><h:outputText value="Create/Edit"/></h1>
+                <h1><h:outputText value="Create Jadwal"/></h1>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="WaktuAwal:" for="waktuAwal" />
+                    <h:outputLabel value="Waktu Awal:" for="waktuAwal" />
                     <h:inputText id="waktuAwal" value="#{jadwalMBean.details.waktuAwal}" title="WaktuAwal" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    <h:outputLabel value="WaktuAkhir:" for="waktuAkhir" />
+                    <h:outputLabel value="Waktu Akhir:" for="waktuAkhir" />
                     <h:inputText id="waktuAkhir" value="#{jadwalMBean.details.waktuAkhir}" title="WaktuAkhir" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    <h:outputLabel value="IdSmnsdg:" for="idSmnsdg" />
+                    <h:outputLabel value="Id SS:" for="idSmnsdg" />
                     <h:selectOneMenu id="idSmnsdg" value="#{jadwalMBean.details.idSmnsdg}" title="IdSmnsdg" >
                         <!-- TODO: update below reference to list of available items-->
                         <f:selectItems value="#{seminarSidangMBean.listIdSeminarSidang}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="IdRuangan:" for="idRuangan" />
+                    <h:outputLabel value="Id Ruangan:" for="idRuangan" />
                     <h:selectOneMenu id="idRuangan" value="#{jadwalMBean.details.idRuangan}" title="IdRuangan" >
                         <!-- TODO: update below reference to list of available items-->
                         <f:selectItems value="#{ruanganMBean.listIdRuangan}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="IdPeriode:" for="idPeriode" />
+                    <h:outputLabel value="Id Periode:" for="idPeriode" />
                     <h:selectOneMenu id="idPeriode" value="#{jadwalMBean.details.idPeriode}" title="IdPeriode" >
                         <!-- TODO: update below reference to list of available items-->
                         <f:selectItems value="#{periodeMBean.listIdPeriode}"/>

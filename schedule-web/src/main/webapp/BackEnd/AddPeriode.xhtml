@@ -10,25 +10,25 @@
     <ui:define name="content">
         <f:view>
             <h:form>
-                <h1><h:outputText value="Create/Edit"/></h1>
+                <h1><h:outputText value="Create Periode"/></h1>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="SemPeriode:" for="semPeriode" />
+                    <h:outputLabel value="Semester:" for="semPeriode" />
                     <h:inputText id="semPeriode" value="#{periodeMBean.details.semPeriode}" title="SemPeriode" />
-                    <h:outputLabel value="ThnPeriode:" for="thnPeriode" />
+                    <h:outputLabel value="Tahun:" for="thnPeriode" />
                     <h:inputText id="thnPeriode" value="#{periodeMBean.details.thnPeriode}" title="ThnPeriode" />
-                    <h:outputLabel value="RentangKtsAwal:" for="rentangKtsAwal" />
+                    <h:outputLabel value="Awal Pengisian Ketersediaan Dosen:" for="rentangKtsAwal" />
                     <h:inputText id="rentangKtsAwal" value="#{periodeMBean.details.rentangKtsAwal}" title="RentangKtsAwal" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    <h:outputLabel value="RentangKtsAkhir:" for="rentangKtsAkhir" />
+                    <h:outputLabel value="Akhir Pengisian Ketersediaan Dosen:" for="rentangKtsAkhir" />
                     <h:inputText id="rentangKtsAkhir" value="#{periodeMBean.details.rentangKtsAkhir}" title="RentangKtsAkhir" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    <h:outputLabel value="RentangSdgAwal:" for="rentangSdgAwal" />
+                    <h:outputLabel value="Rentang Awal Sidang:" for="rentangSdgAwal" />
                     <h:inputText id="rentangSdgAwal" value="#{periodeMBean.details.rentangSdgAwal}" title="RentangSdgAwal" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    <h:outputLabel value="RentangSdgAkhir:" for="rentangSdgAkhir" />
+                    <h:outputLabel value="Rentang Akhir Sidang:" for="rentangSdgAkhir" />
                     <h:inputText id="rentangSdgAkhir" value="#{periodeMBean.details.rentangSdgAkhir}" title="RentangSdgAkhir" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
