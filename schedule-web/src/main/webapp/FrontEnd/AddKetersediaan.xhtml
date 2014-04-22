@@ -7,26 +7,35 @@
     xmlns:util="http://java.sun.com/jsf/composite/util"
     xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <ui:define name="content">
-       Ketersediaan
         <f:view>
             <h:form>
                 <h1><h:outputText value="Create/Edit"/></h1>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="Nim:" for="nim" />
-                    <h:inputText id="nim" value="#{mahasiswaMBean.details.nim}" title="Nim" required="true" requiredMessage="The Nim field is required."/>
-                    <h:outputLabel value="NmMhs:" for="nmMhs" />
-                    <h:inputText id="nmMhs" value="#{mahasiswaMBean.details.nmMhs}" title="NmMhs" />
-                    <h:outputLabel value="AlmtMhs:" for="almtMhs" />
-                    <h:inputText id="almtMhs" value="#{mahasiswaMBean.details.almtMhs}" title="AlmtMhs" />
-                    <h:outputLabel value="JnsKlmnMhs:" for="jnsKlmnMhs" />
-                    <h:inputText id="jnsKlmnMhs" value="#{mahasiswaMBean.details.jnsKlmnMhs}" title="JnsKlmnMhs" />
-                    <h:outputLabel value="IdKa:" for="idKa" />
-                    <h:selectOneMenu id="idKa" value="#{mahasiswaMBean.details.idKa}" title="IdKa" >
+                    <h:outputLabel value="IdKetersediaan:" for="idKetersediaan" />
+                    <h:inputText id="idKetersediaan" value="#{ketersediaanMBean.details.idKetersediaan}" title="IdKetersediaan" required="true" requiredMessage="The IdKetersediaan field is required."/>
+                    <h:outputLabel value="WaktuAwal:" for="waktuAwal" />
+                    <h:inputText id="waktuAwal" value="#{ketersediaanMBean.details.waktuAwal}" title="WaktuAwal" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="WaktuAkhir:" for="waktuAkhir" />
+                    <h:inputText id="waktuAkhir" value="#{ketersediaanMBean.details.waktuAkhir}" title="WaktuAkhir" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="NikDosen:" for="nikDosen" />
+                    <h:selectOneMenu id="nikDosen" value="#{ketersediaanMBean.details.nikDosen}" title="NikDosen" >
                         <!-- TODO: update below reference to list of available items-->
-                        <f:selectItems value="#{fixme}"/>
+                        <f:selectItems value="#{dosenMBean.listDosen}"/>
                     </h:selectOneMenu>
-                    <h:commandButton value="Save" action="#{mahasiswaMBean.addNew}" />
                 </h:panelGrid>
+                <h:commandButton action="#{ketersediaanMBean.addNew}" value="Add" />
+                <h:outputScript name="./js/jquery-min.js" target="head" />
+                <h:outputScript name="./js/anytime.js" target="head"/>
+                
+                <h:outputScript>
+                    AnyTime.picker('j_idt14:waktuAwal',{format:"%m/%d/%Y %H:%i:%s"});
+                    AnyTime.picker('j_idt14:waktuAkhir',{format:"%m/%d/%Y %H:%i:%s"});
+                </h:outputScript>
+
             </h:form>
         </f:view>
 

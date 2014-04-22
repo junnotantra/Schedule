@@ -1,16 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="/template.xhtml"
+    xmlns:util="http://java.sun.com/jsf/composite/util"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:define name="content">
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="IdKetersediaan:" for="idKetersediaan" />
+                    <h:inputText id="idKetersediaan" value="#{ketersediaanMBean.details.idKetersediaan}" title="IdKetersediaan" required="true" requiredMessage="The IdKetersediaan field is required."/>
+                    <h:outputLabel value="WaktuAwal:" for="waktuAwal" />
+                    <h:inputText id="waktuAwal" value="#{ketersediaanMBean.details.waktuAwal}" title="WaktuAwal" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="WaktuAkhir:" for="waktuAkhir" />
+                    <h:inputText id="waktuAkhir" value="#{ketersediaanMBean.details.waktuAkhir}" title="WaktuAkhir" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="NikDosen:" for="nikDosen" />
+                    <h:selectOneMenu id="nikDosen" value="#{kMBean.details.nikDosen}" title="NikDosen" >
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{dosenMBean.listDosen}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandButton action="#{ketersediaanMBean.update}" value="Save" />
+                <h:outputScript name="./js/jquery-min.js" target="head" />
+                <h:outputScript name="./js/anytime.js" target="head"/>
+                
+                <h:outputScript>
+                    AnyTime.picker('j_idt14:waktuAwal',{format:"%m/%d/%Y %H:%i:%s"});
+                    AnyTime.picker('j_idt14:waktuAkhir',{format:"%m/%d/%Y %H:%i:%s"});
+                </h:outputScript>
+
+            </h:form>
+        </f:view>
+
+
+    </ui:define>
+</ui:composition>
