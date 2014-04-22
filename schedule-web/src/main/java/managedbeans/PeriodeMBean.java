@@ -10,6 +10,7 @@ import com.rpl.entities.Periode;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.event.AbortProcessingException;
@@ -28,6 +29,7 @@ public class PeriodeMBean implements Serializable {
 
     private Periode periode;
     private List<Periode> listPeriode;
+    private List<Long> listIdPeriode;
     /**
      * Creates a new instance of PeriodeMBean
      */
@@ -39,7 +41,19 @@ public class PeriodeMBean implements Serializable {
             refresh();  
         return listPeriode;  
     }  
+    
+    public List<Long>getListIdPeriode() {  
+        listPeriode =  getListPeriode();
+        listIdPeriode = new ArrayList();
+        for(int i=0; i<listPeriode.size();i++){
+            listIdPeriode.add(listPeriode.get(i).getIdPeriode());
+        }
+        return listIdPeriode;  
+    }  
+    
+    
   
+    
     public void refresh() {  
         listPeriode = periodeManager.getAllPeriode();
     }  
