@@ -50,7 +50,7 @@ public class Periode implements Serializable {
     @NotNull
     @Column(name = "id_periode")
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "periode_seq")
-    @SequenceGenerator(name = "periode_seq",sequenceName = "seq_periode", allocationSize=1)
+    @SequenceGenerator(name = "periode_seq",sequenceName = "seq_periode",allocationSize = 1)
     private Long idPeriode;
     @Size(max = 30)
     @Column(name = "sem_periode")

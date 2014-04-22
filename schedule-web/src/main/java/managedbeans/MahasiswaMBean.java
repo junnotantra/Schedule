@@ -89,10 +89,17 @@ public class MahasiswaMBean implements Serializable {
     
     public String addNew() {
         mahasiswaManager.persist(mahasiswa);
-        listMahasiswa.add(mahasiswa);
-  //      refresh();
+//        listMahasiswa.add(mahasiswa);
+        refresh();
         return "ListMahasiswa";
         
+    }
+    
+    public String delete(Mahasiswa mahasiswa){
+        this.mahasiswa = mahasiswa;
+        mahasiswaManager.remove(this.mahasiswa);
+        refresh();
+        return "ListMahasiswa";
     }
     
     public void clearMahasiswa(AjaxBehaviorEvent event)

@@ -12,12 +12,15 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -43,12 +46,14 @@ public class JdwlSmnSdg implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "id_jdw_ss")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "jadwal_seq")
+    @SequenceGenerator(name = "jadwal_seq",sequenceName = "seq_jdwl_smn_sdg",allocationSize = 1)
     private Long idJdwSs;
     @Column(name = "waktu_awal")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date waktuAwal;
     @Column(name = "waktu_akhir")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date waktuAkhir;
     @OneToMany(mappedBy = "idJdwSs")
     private Collection<SeminarSidang> seminarSidangCollection;

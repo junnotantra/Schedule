@@ -46,6 +46,10 @@ public class PeriodeManager {
             throw new RuntimeException(e);
         }
     }
+    public void remove(Periode periode){
+        Periode del= em.merge(periode);
+        em.remove(del);
+    }
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")

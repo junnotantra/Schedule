@@ -95,7 +95,12 @@ public class PeriodeMBean implements Serializable {
         return "ListPeriode";
         
     }
-    
+    public String delete(Periode periode){
+        this.periode = periode;
+        periodeManager.remove(periode);
+        refresh();
+        return "ListPeriode";
+    }
     public void clearPeriode(AjaxBehaviorEvent event)
             throws AbortProcessingException {
         periode.setIdPeriode(null);

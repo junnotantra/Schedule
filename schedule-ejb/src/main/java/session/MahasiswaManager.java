@@ -41,4 +41,9 @@ public class MahasiswaManager {
     public void persist(Mahasiswa mahasiswa) {  
         em.persist(mahasiswa);  
     }  
+    
+    public void remove(Mahasiswa mahasiswa){
+        Mahasiswa delMhs= em.merge(mahasiswa);
+        em.remove(delMhs);
+    }
 }

@@ -47,7 +47,8 @@
                         <f:facet name="header">
                             <h:outputText value="Action"/>
                         </f:facet>
-                        <h:commandLink action="#{mahasiswaMBean.showDetails(item)}" value="Edit" />
+                        <h:commandLink action="#{mahasiswaMBean.showDetails(item)}" value="Edit" /> | 
+                        <h:commandLink action="#{mahasiswaMBean.delete(item)}" value="Delete" />
                     </h:column>
                 </h:dataTable>
                 <h:commandLink action="#{mahasiswaMBean.goAdd}" value="Add New" />
